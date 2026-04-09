@@ -26,18 +26,6 @@ try:
         j = j+1
 except IndexError as e:
         print(e)
-    
-# j = 1
-# try:
-#     while True:
-#         review_xpath = '//*[@id="filter-results"]/ul/li[' + str(j) +']/product-card/div[3]/div[1]/div/div[1]/div[1]'
-
-#         curr_review = parsed_content.xpath(review_xpath)[0].get('aria-label')
-        
-#         review_list.append(curr_review)
-#         j = j+1
-# except IndexError as e:
-#         print(e)
 
 
 c = pd.DataFrame({'name':name_list,
