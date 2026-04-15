@@ -16,7 +16,7 @@ parsed_content = html.fromstring(response.content)
 
 i = 1
 j = 1
-# main try thingy
+#
 try:
     while True:
         name_xpath = '//*[@id="filter-results"]/ul/li[' + str(i) + ']/product-card/div[3]/div[1]/div/p[1]/a'
@@ -34,8 +34,8 @@ try:
         j = j+1
 except IndexError as e:
         print(e)
-#   Jasper's loopy thingy
-for i in range(12):
+#
+for x in range(13):
     price_xpath = '//*[@id="filter-results"]/ul/li[' + str(i+1) + ']/product-card//span[contains(@class,"price")]//span[last()]'
     name_xpath = '/html/body/main/div[3]/div/custom-pagination/div[2]/ul/li[' + str(i+1) + ']/product-card/div[3]/div[1]/div/p[1]/a/text()'
     link_xpath = '//*[@id="filter-results"]/ul/li[' + str(i+1) + ']//a[contains(@href,"/products/")]'
