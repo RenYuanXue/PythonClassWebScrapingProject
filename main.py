@@ -34,7 +34,7 @@ try:
 except IndexError as e:
         print(e)
 
-for x in range(13):
+for x in range(14):
     price_xpath = '//*[@id="filter-results"]/ul/li[' + str(x+1) + ']/product-card//span[contains(@class,"price")]//span[last()]'
     link_xpath = '//*[@id="filter-results"]/ul/li[' + str(x+1) + ']//a[contains(@href,"/products/")]'
 
@@ -49,7 +49,10 @@ for x in range(13):
     link_list.append(link)
     
 
-
+# print(len(data))
+# print(len(link_list))
+# print(len(name_list))
+# print(len(review_list))
 
 # final CSV file
 c = pd.DataFrame({'name':name_list,
