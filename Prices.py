@@ -7,6 +7,8 @@ headers = {"User-Agent": "Mozilla/5.0"}
 data = []
 response = requests.get(url, headers=headers)
 parsed_content = html.fromstring(response.content)
+#for link :down arrow
+base_url = "https://keychron.ca"
 
 
 for i in range(20):
@@ -18,15 +20,17 @@ for i in range(20):
     name = parsed_content.xpath(name_xpath)
     link = parsed_content.xpath(link_xpath)
 
-    if not price or not name:
+    if not price or not name or not link:
         continue
 
     product_name = name[0].strip()
     product_price = price[0].text_content().strip()
+    product_link = base_url + link[0].get("href")
 
-    data.append([product_name, product_price])
 
-df = pd.DataFrame(data, columns=["Name", "Price"])
+    data.append([product_name, product_price, product_link])
+
+df = pd.DataFrame(data, columns=["Name", "Price", "Link"])
 print(df)
 
 df.to_csv("keychron_products.csv", index=False)
