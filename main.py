@@ -44,15 +44,14 @@ for x in range(14):
 
 
     product_price = price[0].text_content().strip()
+    product_link = link[0].text_content().strip()
 
-    data.append([product_price])
-    link_list.append(link)
+    data.append(product_price)
+    link_list.append(product_link)
     
 
-# print(len(data))
-# print(len(link_list))
-# print(len(name_list))
-# print(len(review_list))
+
+print(link_list)
 
 # final CSV file
 c = pd.DataFrame({'name':name_list,
