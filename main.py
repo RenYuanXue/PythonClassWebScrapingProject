@@ -6,6 +6,7 @@ import pandas as pd
 name_list = []
 review_list = []
 data = []
+link_list = []
 
 # getting the URL
 url  = 'https://keychron.ca/collections/keychron-lemokey-series-keyboard-collection'
@@ -45,13 +46,15 @@ for x in range(13):
     product_price = price[0].text_content().strip()
 
     data.append([product_price])
+    link_list.append(link)
+    
 
 
 
 # final CSV file
 c = pd.DataFrame({'name':name_list,
                   'review':review_list,
-                  'prices':price,
-                  'link':link
+                  'prices':data,
+                  'link':link_list
                  })
 print(c.head)
